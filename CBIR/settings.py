@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django_filters',
     'django_extensions',
     'rest_framework',
-    'imageupload'
+    'imageupload',
+    'texture'
 ]
 
 
