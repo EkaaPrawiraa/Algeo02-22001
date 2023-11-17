@@ -3,5 +3,5 @@ from django.urls import path
 from .views import ImageProcessing
 
 urlpatterns = [
-    path('process-images/', ImageProcessing.as_view(), name='process_images'),
+    path('process-color-images/', ImageProcessing.as_view(), name='processed_images'),
 ]
