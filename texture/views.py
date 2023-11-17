@@ -33,10 +33,11 @@ class ImageProcessingView(View):
 
     def process_images(self, main_image_path, dataset_folder):
         processed_images = []
+        querry_image= functions.makevector(main_image_path)
         for image_name in os.listdir(dataset_folder):
             dataset_image_path = os.path.join(dataset_folder, image_name)
             # Perform image processing and calculate percentage
-            percentage = self.calculate_percentage(main_image_path, dataset_image_path)
+            percentage = self.calculate_percentage(querry_image, dataset_image_path)
             # Save the processed image to the database
             with open(dataset_image_path, "rb") as image_file:
                 encoded_image = base64.b64encode(image_file.read()).decode('utf-8')
@@ -49,5 +50,5 @@ class ImageProcessingView(View):
 
     def calculate_percentage(self, main_image_path, dataset_image_path):
         # Read the dataset image
-        percentage=functions.cosine_similarity(functions.makevector(main_image_path), functions.makevector(dataset_image_path))
+        percentage=functions.cosine_similarity(main_image_path, functions.makevector(dataset_image_path))
         return percentage
