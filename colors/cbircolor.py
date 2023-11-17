@@ -8,49 +8,72 @@ import time
 class colormethod(object):
     def rgb_to_hsv(rgbimage):
         #tinggi dan lebar image
-        start = time.time()
+        # start = time.time()
         (height, width) = rgbimage.shape[:2] 
         #3 dimensi untuk H S V
         fitur=np.zeros((height,width,3),dtype=float)
         # Normalisasi nilai RGB
         normalized_image = rgbimage/255.0
        
-        # calculating cmax,cmin,delta
-        red = normalized_image[:,:,2]
-        green = normalized_image[:,:,1]
-        blue = normalized_image[:,:,0]
-        # print(f"Hasil red: {red}")
-        # print(f"Hasil green: {green}")
-        # print(f"Hasil blue: {blue}")
+        # # calculating cmax,cmin,delta
+        # red = normalized_image[:,:,2]
+        # green = normalized_image[:,:,1]
+        # blue = normalized_image[:,:,0]
+        # # print(f"Hasil red: {red}")
+        # # print(f"Hasil green: {green}")
+        # # print(f"Hasil blue: {blue}")
 
-        result = np.zeros((height,width,2),dtype=float)
-        for i in range(height):
-            for j in range(width):
-                # array of max rgb
-                result[i][j][0]=colormethod.maxvalue(red[i][j],green[i][j],blue[i][j])
-                #array of min
-                result[i][j][1]=colormethod.minvalue(red[i][j],green[i][j],blue[i][j])
-                delta = result[i][j][0]-result[i][j][1]
+        # result = np.zeros((height,width,2),dtype=float)
+        # for i in range(height):
+        #     for j in range(width):
+        #         # array of max rgb
+        #         result[i][j][0]=colormethod.maxvalue(red[i][j],green[i][j],blue[i][j])
+        #         #array of min
+        #         result[i][j][1]=colormethod.minvalue(red[i][j],green[i][j],blue[i][j])
+        #         delta = result[i][j][0]-result[i][j][1]
 
-                #mencari nilai H
-                if delta ==0:
-                    fitur[i][j][0]=0
-                elif result[i][j][0]==red[i][j]:
-                    fitur[i][j][0] = 60 * ( (green[i][j]-blue[i][j])/delta %6)
-                elif result[i][j][0]==green[i][j]:
-                    fitur[i][j][0] = 60 * ( (green[i][j]-blue[i][j])/delta +2)
-                else:
-                    fitur[i][j][0] = 60 * ( (green[i][j]-blue[i][j])/delta +4)
+        #         #mencari nilai H
+        #         if delta ==0:
+        #             fitur[i][j][0]=0
+        #         elif result[i][j][0]==red[i][j]:
+        #             fitur[i][j][0] = 60 * ( (green[i][j]-blue[i][j])/delta %6)
+        #         elif result[i][j][0]==green[i][j]:
+        #             fitur[i][j][0] = 60 * ( (green[i][j]-blue[i][j])/delta +2)
+        #         else:
+        #             fitur[i][j][0] = 60 * ( (green[i][j]-blue[i][j])/delta +4)
 
-                #mencari nilai S
-                if result[i][j][0] == 0:
-                    fitur[i][j][1]=0
-                elif result[i][j][0] != 0:
-                    fitur[i][j][1]=delta/result[i][j][0]
+        #         #mencari nilai S
+        #         if result[i][j][0] == 0:
+        #             fitur[i][j][1]=0
+        #         elif result[i][j][0] != 0:
+        #             fitur[i][j][1]=delta/result[i][j][0]
                 
-                #mencari nilai V
-                fitur[i][j][2]=result[i][j][0]
-        end = time.time()
+        #         #mencari nilai V
+        #         fitur[i][j][2]=result[i][j][0]
+        red = normalized_image[:, :, 2]
+        green = normalized_image[:, :, 1]
+        blue = normalized_image[:, :, 0]
+
+        # result = np.zeros((height, width, 2), dtype=float)
+
+        max_rgb = np.maximum(red, np.maximum(green, blue))
+        min_rgb = np.minimum(red, np.minimum(green, blue))
+
+        # result[:, :, 0] = max_rgb
+        # result[:, :, 1] = min_rgb
+
+        delta = max_rgb - min_rgb
+
+        fitur[:, :, 0] = np.where(delta == 0, 0,
+                                np.where(max_rgb == red, 60 * ((green - blue) / delta % 6),
+                                        np.where(max_rgb == green, 60 * ((green - blue) / delta + 2),
+                                                60 * ((green - blue) / delta + 4))))
+
+        fitur[:, :, 1] = np.where(max_rgb == 0, 0, delta / max_rgb)
+
+        fitur[:, :, 2] = max_rgb
+
+        # end = time.time()
 
         # print(f"Lama RGB: {end-start}")
         return fitur
@@ -92,7 +115,7 @@ class colormethod(object):
     
     
     def calculate_histogram(image_matrix):
-        start = time.time()
+        # start = time.time()
         (height, width, num_channels) = image_matrix.shape
 
         # Inisialisasi vektor histogram
@@ -137,7 +160,7 @@ class colormethod(object):
                 # print(f"Hasil block_histogram: {histogram_vector}")
                 x += 1
                 
-        end= time.time()  
+        # end= time.time()  
         # print(f"Lama HISTOGRAM: {end-start}")
         return histogram_vector
    
@@ -145,9 +168,11 @@ class colormethod(object):
 
     def calculate_cosine_similarity(hist1, hist2):
         # Flatten histograms
-        dot_product = np.dot(hist1,hist2)
-        normal_a = np.linalg.norm(hist1)
-        normal_b = np.linalg.norm(hist2)
-        similarity = dot_product/(normal_a*normal_b)
-
-        return similarity
+        result =0;
+        for i in range(16):
+            dot_product = np.dot(hist1[i],hist2[i])
+            normal_a = np.linalg.norm(hist1[i])
+            normal_b = np.linalg.norm(hist2[i])
+            result += dot_product/(normal_a*normal_b)
+        result/=16.0
+        return result

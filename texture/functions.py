@@ -58,3 +58,5 @@ matrix=np.add(matrix, transpose_matrix(matrix))
 total=np.sum(matrix)
 comatrix=np.divide(matrix, total)
 print (comatrix)
+
+# inii buat apaa?
