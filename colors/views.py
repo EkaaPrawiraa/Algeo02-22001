@@ -11,7 +11,7 @@ import os
 import time
 import base64
 
-class ImgageProcessing(View):
+class ImageProcessing(View):
     # def read_images_from_folder(folder_path):
     #     images = []
     #     for filename in os.listdir(folder_path):
