@@ -6,114 +6,6 @@ import time
 
 
 class colormethod(object):
-    def rgb_to_hsv(rgbimage):
-        #tinggi dan lebar image
-        # start = time.time()
-        (height, width) = rgbimage.shape[:2] 
-        #3 dimensi untuk H S V
-        fitur=np.zeros((height,width,3),dtype=float)
-        # Normalisasi nilai RGB
-        normalized_image = rgbimage/255.0
-       
-        # # calculating cmax,cmin,delta
-        # red = normalized_image[:,:,2]
-        # green = normalized_image[:,:,1]
-        # blue = normalized_image[:,:,0]
-        # # print(f"Hasil red: {red}")
-        # # print(f"Hasil green: {green}")
-        # # print(f"Hasil blue: {blue}")
-
-        # result = np.zeros((height,width,2),dtype=float)
-        # for i in range(height):
-        #     for j in range(width):
-        #         # array of max rgb
-        #         result[i][j][0]=colormethod.maxvalue(red[i][j],green[i][j],blue[i][j])
-        #         #array of min
-        #         result[i][j][1]=colormethod.minvalue(red[i][j],green[i][j],blue[i][j])
-        #         delta = result[i][j][0]-result[i][j][1]
-
-        #         #mencari nilai H
-        #         if delta ==0:
-        #             fitur[i][j][0]=0
-        #         elif result[i][j][0]==red[i][j]:
-        #             fitur[i][j][0] = 60 * ( (green[i][j]-blue[i][j])/delta %6)
-        #         elif result[i][j][0]==green[i][j]:
-        #             fitur[i][j][0] = 60 * ( (green[i][j]-blue[i][j])/delta +2)
-        #         else:
-        #             fitur[i][j][0] = 60 * ( (green[i][j]-blue[i][j])/delta +4)
-
-        #         #mencari nilai S
-        #         if result[i][j][0] == 0:
-        #             fitur[i][j][1]=0
-        #         elif result[i][j][0] != 0:
-        #             fitur[i][j][1]=delta/result[i][j][0]
-                
-        #         #mencari nilai V
-        #         fitur[i][j][2]=result[i][j][0]
-        red = normalized_image[:, :, 2]
-        green = normalized_image[:, :, 1]
-        blue = normalized_image[:, :, 0]
-
-        # result = np.zeros((height, width, 2), dtype=float)
-
-        max_rgb = np.maximum(red, np.maximum(green, blue))
-        min_rgb = np.minimum(red, np.minimum(green, blue))
-
-        # result[:, :, 0] = max_rgb
-        # result[:, :, 1] = min_rgb
-
-        delta = max_rgb - min_rgb
-
-        fitur[:, :, 0] = np.where(delta == 0, 0,
-                                np.where(max_rgb == red, 60 * ((green - blue) / delta % 6),
-                                        np.where(max_rgb == green, 60 * ((green - blue) / delta + 2),
-                                                60 * ((green - blue) / delta + 4))))
-
-        fitur[:, :, 1] = np.where(max_rgb == 0, 0, delta / max_rgb)
-
-        fitur[:, :, 2] = max_rgb
-
-        # end = time.time()
-
-        # print(f"Lama RGB: {end-start}")
-        return fitur
-        
-    
-
-  
-
-
-
-
-
-    
-
-    def maxvalue(a,b,c):
-        max_value = a  # Inisialisasi dengan nilai pertama
-
-    
-        if b > max_value:
-            max_value = b
-
-        if c > max_value:
-            max_value = c
-
-        return max_value
-    def minvalue(a,b,c):
-        min_value = a  # Inisialisasi dengan nilai pertama
-
-    
-        if b < min_value:
-            min_value = b
-
-        if c < min_value:
-            min_value = c
-
-        return min_value
-    
-
-    
-    
     def calculate_histogram(image_matrix):
         # start = time.time()
         (height, width, num_channels) = image_matrix.shape
@@ -164,8 +56,6 @@ class colormethod(object):
         # print(f"Lama HISTOGRAM: {end-start}")
         return histogram_vector
    
-
-
     def calculate_cosine_similarity(hist1, hist2):
         # Flatten histograms
         result =0;
@@ -176,3 +66,43 @@ class colormethod(object):
             result += dot_product/(normal_a*normal_b)
         result/=16.0
         return result
+    
+
+
+
+    def rgb_to_hsv(rgbimage_path):
+        # Baca gambar
+        rgbimage = cv2.imread(rgbimage_path)
+        
+        
+        #  Normalisasi nilai RGB
+        normalized_image = rgbimage / 255.0
+        
+        # Mendapatkan nilai-nilai RGB
+        red = normalized_image[:, :, 2]
+        green = normalized_image[:, :, 1]
+        blue = normalized_image[:, :, 0]
+        
+        # Mendapatkan nilai maksimum dan minimum dari RGB
+        max_rgb = np.maximum(red, np.maximum(green, blue))
+        min_rgb = np.minimum(red, np.minimum(green, blue))
+        
+        # Menghitung delta
+        delta = max_rgb - min_rgb
+        
+        # Mencari nilai hue
+        hue = np.where(delta == 0, 0, 
+                   60 * np.where(max_rgb == red, (green - blue) / (delta + 1e-9) % 6,
+                                np.where(max_rgb == green, (blue - red) / (delta + 1e-9) + 2,
+                                         (red - green) / (delta + 1e-9) + 4)))
+
+        # Menghitung nilai saturation
+        saturation = np.where(max_rgb == 0, 0, delta / (max_rgb + 1e-9))
+
+        # Menghitung nilai value
+        value = max_rgb
+
+        # Menggabungkan nilai H, S, V ke dalam satu array
+        hsv_image = np.stack((hue, saturation, value), axis=-1)
+
+        return hsv_image
