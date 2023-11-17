@@ -15,7 +15,7 @@ class ImageProcessingView(View):
         try:
             jpg_file = next(f for f in os.listdir(main_imagefolder) if f.lower().endswith('.jpg'))
         except StopIteration:
-            print("No JPG file found in the folder.")
+            print("Gaada foto JPG nya sayang.")
         main_image_path = os.path.join(main_imagefolder, jpg_file)
         dataset_folder = os.path.join(settings.MEDIA_ROOT, 'dataset/')
 
