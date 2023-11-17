@@ -45,7 +45,7 @@ def cosine_similarity(vect1, vect2):
     similarity = dot_product / (norm_vect1 * norm_vect2)
     return similarity
 
-def make_vector(path):
+def makevector(path):
     comatrix = make_cooccurrence(path)
     vector = np.array([contrast(comatrix), homogeneity(comatrix), entropy(comatrix)])
     return vector
@@ -56,10 +56,3 @@ def convert_to_grayscale(image_path, output_path):
     cv2.imwrite(output_path, gray_img)
 
 # Example usage
-path1 = '../media/dataset/messageImage_1669391260132.jpg'
-path2 = '402773.jpg'
-vector1 = make_vector(path1)
-vector2 = make_vector(path2)
-similarity = cosine_similarity(vector1, vector2)
-
-print(similarity)
