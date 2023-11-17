@@ -4,7 +4,6 @@ from django.http import JsonResponse
 from django.views import View
 from .models import ProcessedImage
 from django.conf import settings
-import cv2
 import time
 import base64
 from . import functions

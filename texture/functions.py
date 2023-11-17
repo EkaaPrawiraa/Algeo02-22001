@@ -34,7 +34,7 @@ def homogeneity(comatrix):
     return np.sum(comatrix / (1 + (i - j) ** 2))
 
 def entropy(comatrix):
-    epsilon = 1e-10
+    epsilon = 1e-1000
     comatrix[comatrix == 0] = epsilon
     return -np.sum(comatrix * np.log(comatrix))
 
@@ -50,9 +50,3 @@ def makevector(path):
     vector = np.array([contrast(comatrix), homogeneity(comatrix), entropy(comatrix)])
     return vector
 
-def convert_to_grayscale(image_path, output_path):
-    img = cv2.imread(image_path)
-    gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    cv2.imwrite(output_path, gray_img)
-
-# Example usage
