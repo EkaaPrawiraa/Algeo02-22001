@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django_extensions',
     'rest_framework',
     'imageupload',
-    'texture'
+    'texture',
+    'colors'
 ]
 
 
