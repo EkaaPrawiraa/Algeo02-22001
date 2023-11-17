@@ -82,6 +82,7 @@ class ImgageProcessing(View):
 
     def calculate_percentage(self, main_image_path, dataset_image_path):
         # Read the dataset image
+    
         percentage=colormethod.calculate_cosine_similarity(colormethod.calculate_histogram(colormethod.rgb_to_hsv(main_image_path)), colormethod.calculate_histogram(colormethod.rgb_to_hsv(dataset_image_path)))
         return percentage
 

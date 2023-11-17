@@ -6,10 +6,11 @@ import time
 
 
 class colormethod(object):
-    def rgb_to_hsv(rgbimage):
+    def rgb_to_hsv(rgbimage_path):
         #tinggi dan lebar image
+        rgbimage= cv2.imread(rgbimage_path)
         # start = time.time()
-        (height, width) = rgbimage.shape[:2] 
+        (height, width,_) = rgbimage.shape()
         #3 dimensi untuk H S V
         fitur=np.zeros((height,width,3),dtype=float)
         # Normalisasi nilai RGB
