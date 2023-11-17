@@ -2,7 +2,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from .forms import ImageUploadForm, FolderUploadForm
-from cbircolor import colormethod
+from .cbircolor import colormethod
 import cv2
 import os
 
