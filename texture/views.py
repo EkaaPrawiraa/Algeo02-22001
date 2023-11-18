@@ -12,7 +12,7 @@ class ImageProcessingView(View):
     def get(self, request, *args, **kwargs):
         main_imagefolder = os.path.join(settings.MEDIA_ROOT, 'uploaded_images')  # Adjust the main image path
         try:
-            jpg_file = next(f for f in os.listdir(main_imagefolder) if f.lower().endswith('.jpg'))
+            jpg_file = next((f for f in os.listdir(main_imagefolder) if f.lower().endswith(('.jpg', '.png'))), None)
         except StopIteration:
             print("Gaada foto JPG nya sayang.")
         main_image_path = os.path.join(main_imagefolder, jpg_file)
