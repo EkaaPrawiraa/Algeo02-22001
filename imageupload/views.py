@@ -13,23 +13,29 @@ from django.core.files.storage import FileSystemStorage
 
 
 class FolderUploadView(APIView):
-    parser_classes = (MultiPartParser,FileUploadParser,)
-    def post(self, request, *args, **kwargs):
+    parser_classes = (MultiPartParser, FileUploadParser,)
 
+    def post(self, request, *args, **kwargs):
         self.clear_destination_folder(os.path.join(settings.MEDIA_ROOT, 'dataset'))
-        folder = request.FILES['file']
-        jpg_files = [f for f in os.listdir(folder) if f.lower().endswith('.jpg')]
-        for jpg_file in jpg_files:
-            image_path = os.path.join(folder, jpg_file)
-            with open(image_path, 'rb') as file:
-                file_data = {'image': SimpleUploadedFile(jpg_file, file.read())}
-            serializer = Uploadeddataset(data=file_data)
-            if serializer.is_valid():
-                serializer.save()
-            else:
-                print("Serializer errors:", serializer.errors)
+        files = request.FILES.getlist('files')
+
+        for uploaded_file in files:
+            if uploaded_file.name.lower().endswith('.jpg'):
+                image_path = os.path.join(settings.MEDIA_ROOT, 'dataset', uploaded_file.name)
+                with open(image_path, 'wb') as file:
+                    for chunk in uploaded_file.chunks():
+                        file.write(chunk)
+
+                file_data = {'image': SimpleUploadedFile(uploaded_file.name, uploaded_file.read())}
+                serializer = Uploadeddataset(data=file_data)
+
+                if serializer.is_valid():
+                    serializer.save()
+                else:
+                    print("Serializer errors:", serializer.errors)
 
         return Response({'message': 'Images uploaded successfully'}, status=status.HTTP_201_CREATED)
+
     def clear_destination_folder(self, folder_path):
         # Delete all files in the specified folder
         for file_name in os.listdir(folder_path):
@@ -39,6 +45,7 @@ class FolderUploadView(APIView):
                     os.unlink(file_path)
             except Exception as e:
                 print(f"Error deleting file {file_path}: {e}")
+                
 class SingleFileUploadView(APIView):
     parser_classes = (MultiPartParser,FileUploadParser,)
 

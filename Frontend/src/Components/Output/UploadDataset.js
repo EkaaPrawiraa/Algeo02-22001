@@ -1,56 +1,44 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-// FolderUploadButton
-const FolderUploadButton = ({ onFolderSelect, onFolderUpload }) => {
-  const handleSelect = (event) => {
-    const folder = event.target.files[0];
-    onFolderSelect(folder);
-  };
-
-  const handleUpload = () => {
-    onFolderUpload();
-  };
-
-  return (
-    <div>
-      <input type="file" id="folderInput" webkitdirectory="" directory="" onChange={handleSelect} />
-      <button onClick={handleUpload}>Upload Folder</button>
-    </div>
-  );
-};
-
-// YourParentComponent
 const YourParentComponent = () => {
-  const [selectedFolder, setSelectedFolder] = useState(null);
-
-  const handleFolderSelect = (folder) => {
-    setSelectedFolder(folder);
-  };
-
-  const handleFolderUpload = async () => {
+  const handleUpload = async (event) => {
+    const files = event.target.files;
     try {
       const formData = new FormData();
-      formData.append('file', selectedFolder);
+      for (let i = 0; i < files.length; i++) {
+        formData.append('files', files[i]);
+      }
 
-      // Kirim request ke backend Anda
       const response = await axios.post('http://localhost:8000/api/upload/folder/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
 
-      // Handle respons jika diperlukan
-      console.log('Upload berhasil', response.data);
+      console.log('Files uploaded successfully:', response.data);
+      // Handle response if needed
     } catch (error) {
-      // Handle error
-      console.error('Error mengupload folder', error.response.data);
+      console.error('Error uploading files:', error);
+      // Handle errors if needed
     }
   };
 
   return (
     <div>
-      <FolderUploadButton onFolderSelect={handleFolderSelect} onFolderUpload={handleFolderUpload} />
+      <input
+        hidden
+        multiple
+        type="file"
+        id="ctrl"
+        webkitdirectory=""
+        directory=""
+        accept="image/*"
+        onChange={handleUpload}
+      />
+      <p className="data-button" onClick={() => document.getElementById('ctrl').click()}>
+        Insert Dataset
+      </p>
     </div>
   );
 };

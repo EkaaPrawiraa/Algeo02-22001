@@ -34,9 +34,8 @@ def homogeneity(comatrix):
     return np.sum(comatrix / (1 + (i - j) ** 2))
 
 def entropy(comatrix):
-    epsilon = 1e-1000
-    comatrix[comatrix == 0] = epsilon
-    return -np.sum(comatrix * np.log(comatrix))
+    matrix = comatrix[comatrix!=0]
+    return -np.sum(matrix * np.log(matrix))
 
 def cosine_similarity(vect1, vect2):
     dot_product = np.dot(vect1, vect2)
