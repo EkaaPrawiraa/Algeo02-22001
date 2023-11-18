@@ -53,12 +53,10 @@ function Search({ selectedToggle }) {
           <p>No results found</p>
         ) : (
           <ul>
-            {searchResults.map((result, index) => (
-              <li key={index}>
+
                 <ImageOutput images={searchResults} totalTime={searchtime} />
                 {/* Display other properties or image data if needed */}
-              </li>
-            ))}
+              )
           </ul>
         )}
       </div>

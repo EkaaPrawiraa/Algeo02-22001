@@ -46,14 +46,14 @@ class ImageProcessing(View):
                 encoded_image = base64.b64encode(image_file.read()).decode('utf-8')
             if percentage>=0.60:
                 percentage *= 100
-                rounded_percentage = round(percentage, 2)
-                rounded_percentage=f'{rounded_percentage}%'
+                rounded_percentage = percentage
                 processed_images.append({
                     'image_name': image_name, 
                     'percentage': rounded_percentage,
                     'image_data': encoded_image})#harusnya encoded_image, tapi tidak dibuat karena belum ada frontend
         processed_images = sorted(processed_images, key=lambda x: x['percentage'], reverse=True)
-
+        for image in processed_images:
+            image['percentage'] = f'{image["percentage"]}%'
         return processed_images
 
 
