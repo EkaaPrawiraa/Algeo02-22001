@@ -47,6 +47,8 @@ class ImageProcessingView(View):
                     'percentage': percentage,
                     'image_data': encoded_image})#harusnya encoded_image, tapi tidak dibuat karena belum ada frontend
         processed_images = sorted(processed_images, key=lambda x: x['percentage'], reverse=True)
+        for image in processed_images:
+            image['percentage'] = f'{image["percentage"]}%'
         return processed_images
 
     def calculate_percentage(self, main_image_path, dataset_image_path):
