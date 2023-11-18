@@ -49,6 +49,7 @@ class ImageProcessing(View):
                     'image_name': image_name, 
                     'percentage': percentage,
                     'image_data': ''})#harusnya encoded_image, tapi tidak dibuat karena belum ada frontend
+        processed_images = sorted(processed_images, key=lambda x: x['percentage'], reverse=True)
         return processed_images
 
 
