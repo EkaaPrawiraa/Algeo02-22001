@@ -9,7 +9,6 @@ function Search({ selectedToggle }) {
   const [isSearchTriggered, setIsSearchTriggered] = useState(false);
 
   useEffect(() => {
-    // Perform different actions based on the selectedToggle prop
     const fetchData = async () => {
       try {
         if (isSearchTriggered) {
@@ -22,10 +21,8 @@ function Search({ selectedToggle }) {
             console.log('Searching texture...');
           }
           setSearchResults(response.data.processed_images || []);
-          setSearchtime(response.data.total_time) // Assuming 'processed_images' is the key in the response
-          setIsSearchTriggered(false); // Reset the search trigger after fetching data
-          // Add your new action or program here
-          // ...
+          setSearchtime(response.data.total_time || 0); // Assuming 'processed_images' and 'total_time' are the keys in the response
+          setIsSearchTriggered(false);
         }
       } catch (error) {
         console.error('Error searching:', error);
@@ -36,12 +33,11 @@ function Search({ selectedToggle }) {
   }, [selectedToggle, isSearchTriggered]);
 
   const handleSearchClick = () => {
-    // Trigger the search by updating the state
     setIsSearchTriggered(true);
   };
 
   return (
-    <div>
+    <div className='Sementara'>
       <div className="SearchButton">
         <button className="Features" id="Search" onClick={handleSearchClick}>
           Search
@@ -52,16 +48,12 @@ function Search({ selectedToggle }) {
         {searchResults && searchResults.length === 0 ? (
           <p>No results found</p>
         ) : (
-          <ul>
-
-                <ImageOutput images={searchResults} totalTime={searchtime} />
-                {/* Display other properties or image data if needed */}
-              )
-          </ul>
+            <ImageOutput images={searchResults} totalTime={searchtime} />
         )}
       </div>
     </div>
   );
 }
 
+// Exporting searchResults and searchtime along with the component
 export default Search;
