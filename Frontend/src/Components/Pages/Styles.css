@@ -1,23 +1,13 @@
-h1{
-    text-align: center;
-    font-size: 75px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    grid-row-start: 1;
-    grid-row-end: 1;
-    margin-bottom: 50px;
-    color: white;
-}
-
 .NavBar{
     text-align: center;
-    top: 0;
-    height: 40px;
-    position:sticky;
+    height: 75px;
+    position:fixed;
+    top:0;
     grid-column-start: 1;
     grid-column-end: 12;
-    grid-row-start: 1;
-    background-color: lightslategray;
+    background-color: black;
     width: 100%;
+    grid-row-start: 1;
 }
 
 .Nav{
@@ -26,6 +16,8 @@ h1{
     grid-column-end: 12;
     vertical-align: middle;
     text-decoration: none;
+    height: 75px;
+    align-items: center;
 }
 
 .ReverseImage{
@@ -42,7 +34,7 @@ h1{
     text-align: center;
     font-size: 25px;
     font-family: fantasy;
-    background-color: lightslategray;
+    background-color: black;
     border:none;
 }
 
@@ -54,7 +46,7 @@ h1{
     font-size: 25px;
     text-align: center;
     font-family: fantasy;
-    background-color:lightslategray;
+    background-color:black;
     border:none;
 }
 
@@ -66,7 +58,7 @@ h1{
     font-size: 25px;
     text-align: center;
     font-family: fantasy;
-    background-color: lightslategray;
+    background-color: black;
     border:none;
 }
 
@@ -78,7 +70,7 @@ h1{
     font-size: 25px;
     text-align: center;
     font-family: fantasy;
-    background-color: lightslategray;
+    background-color: black;
     border:none;
 }
 
@@ -95,19 +87,22 @@ h1{
 
 .InputButton{
     text-align: center;
+    align-items: center;
     font-family:Georgia, 'Times New Roman', Times, serif;
     grid-column-start: 7;
-    grid-column-end: 10;
     grid-row-start: 2;
-    width:120px;
-    margin: auto;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+    overflow: hidden;
 }
 
 .ColorTextureToggle{
     text-align:center;
-    grid-column-start: 7;
-    grid-column-end: 10;
-    grid-row-start: 4;
+    grid-column-start: 6;
+    grid-column-end: 9;
+    grid-row-start: 3;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
 }
@@ -128,6 +123,8 @@ h1{
 
 .ImageInput{
     margin-bottom: 50px;
+    margin-top: 50px;
+    grid-template-columns: repeat(8,1fr);
 }
 
 .ImageOutput{
@@ -161,10 +158,15 @@ h1{
 .Prev{
     width:50%;
     grid-column-start: 1;
-    border-radius: 15%;
+    border-radius: 25px;
     grid-row-start: 1;
     text-align: center;
     margin: auto;
+    background-color: black;
+    color: white;
+    align-items: center;
+    height: 40px;
+    cursor: pointer;
 }
 
 .Page{
@@ -172,6 +174,11 @@ h1{
     grid-column-start: 3;
     text-align: center;
     margin: auto;
+    background-color: black;
+    border-radius: 25px;
+    color: white;
+    align-items: center;
+    height: 40px;
 }
 
 .Next{
@@ -180,18 +187,22 @@ h1{
     border-radius: 15%;
     text-align: center;
     margin: auto;
+    border-radius: 25px;
+    background-color: black;
+    align-items: center;
+    color: white;
+    height: 40px;
+    cursor: pointer;
 }
 
 .Features{
-    background-image: url("../Assets/bg.avif");
-    border-radius: 12px;
     width: 50%;
     align-items: center;
     height: 50px;
     text-align: center;
     margin:auto;
     color:white;
-    font-family: fantasy;
+    font-family: cursive;
 }
 
 .SubColorTextureToggle{
@@ -258,9 +269,9 @@ label{
 
 .InputPicture{
     grid-column-start: 2;
-    grid-column-end: 7;
+    grid-column-end: 6;
     grid-row-start: 1;
-    grid-row-end: 5;
+    grid-row-end: 6;
     width: 640px;
     height: 360px;
 }
@@ -293,13 +304,18 @@ label{
 
 .Result{
     grid-template-columns: repeat(5,1fr);
-    grid-template-rows: repeat(2,1fr);
+    grid-template-rows: repeat(3,1fr);
 }
 
 .SearchButton{
-    grid-row-start: 6;
-    grid-column-start: 8;
-    grid-column-end: 9;
+    grid-row-start: 4;
+    grid-column-start: 7;
+    align-items: center;
+    text-align: center;
+    background-color: black;
+    border-radius: 25px;
+    height: 50px;
+    cursor: pointer;
 }
 
 .ColorTitle{
@@ -318,8 +334,10 @@ label{
     font-size: 100px;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     align-items: center;
+    margin-top: 100px;
     margin-bottom: 30px;
     margin-left: 20px;
+    text-align: center;
 }
 
 .SubHeader{
@@ -331,6 +349,41 @@ label{
 
 .Text{
     text-align: justify;
+    font-size: 25px;
     margin-left: 20px;
-    margin-right: 10px;
+    margin-right: 20px;
+}
+
+.GambarPenjelasan{
+    margin-bottom: 20px;
+    margin: auto;
+}
+
+.InsertDatasetButton{
+    cursor: pointer;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    align-items: center;
+    text-align: center;
+    background-color: black;
+    border-radius: 25px;
+    height: 50px;
+}
+
+.data-button{
+    color: white;
+    font-family: cursive;
+}
+
+.InsertImageText{
+    color:white;
+    font-family: cursive;
+}
+
+#Color1{
+    grid-column-start: 1;
+}
+
+#Color2{
+    grid-column-start: 2;
 }

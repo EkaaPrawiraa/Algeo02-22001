@@ -1,8 +1,14 @@
+import CBIR from "../Assets/CBIR.gif"
+import Color1 from "../Assets/CBIRColor1.png"
+import Color2 from "../Assets/CBIRColor2.png"
+import Texture1 from "../Assets/Texture1.png"
+import Texture2 from "../Assets/Texture2.png"
 function BriefConcept()
 {
     return(
         <span className="BriefConcept">
-            <span className="Header">Konsep Singkat</span>
+            <span className="Header">Brief Concept</span>
+            <hr style={{background:'black', color:'black', height:'3px'}} />
             <span className="SubHeader">CBIR</span>
             <p className="Text">
                 CBIR (<i>Content Based Image Retrieval System</i>) adalah suatu metode pencarian citra atau gambar dengan melakukan perbandingan 
@@ -18,6 +24,7 @@ function BriefConcept()
                 lebih efisien, karena tidak memerlukan pencarian berdasarkan teks atau kata kunci, melainkan
                 berdasarkan kesamaan nilai citra visual antara gambar-gambar tersebut.
             </p>
+            <img src={CBIR} alt="CBIR" className="GambarPenjelasan"></img>
             <span className="SubHeader">1. Colour</span>
             <p className="Text">
                 CBIR dengan parameter warna dilakukan dengan mengubah bentuk RGB (<i>Red,Green,Blue</i>) dari sebuah gambar menjadi histogram
@@ -32,6 +39,10 @@ function BriefConcept()
                     <li>Bandingkan nilai HSV dari gambar yang diberikan dengan <i>dataset</i> yang ada dengan <i>cosine similarity</i></li>
                 </ol>
             </p>
+            <div className="Color">
+                <img src={Color1} alt="Color1" id = "Color1" className="GambarPenjelasan"></img>
+                <img src={Color2} alt="Color2" id = "Color2" className="GambarPenjelasan"></img>
+            </div>
             <span className="SubHeader">2. Texture</span>
             <p className="Text">
             CBIR dengan perbandingan tekstur dilakukan menggunakan suatu matriks yang dinamakan <i>co-occurrence matrix</i> untuk dapat diproses dalam skala lebih kecil, lebih mudah,
@@ -45,6 +56,8 @@ function BriefConcept()
                 <li>Bandingkan vektor gambar yang diberikan dengan <i>dataset</i> yang ada menggunakan <i>cosine similarity</i></li>
             </ol>
             </p>
+            <img src={Texture1} alt="Texture1" className="GambarPenjelasan"></img>
+            <img src={Texture2} alt="Texture2" className="GambarPenjelasan"></img>
         </span>
     );
 }

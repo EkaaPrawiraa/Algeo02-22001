@@ -5,6 +5,12 @@ const InputPicture = ({ onImageSelect }) => {
     const file = event.target.files[0];
 
     if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const imageData = reader.result;
+        onImageSelect(imageData);
+      };
+      reader.readAsDataURL(file);
       const formData = new FormData();
       formData.append('file', file);
 
@@ -28,12 +34,12 @@ const InputPicture = ({ onImageSelect }) => {
   };
 
   return (
-    <div className='InputButton'>
+    <div className='InputButton' onChange={handleFileChange}>
       <label htmlFor="InputGambar">
-        <p>
+        <span className='InsertImageText'>
           Insert Image
-        </p>
-        <input type="file" id="InputGambar" accept="image/*" onChange={handleFileChange} />
+        </span>
+        <input type="file" id="InputGambar" accept="image/*" />
       </label>
     </div>
   );

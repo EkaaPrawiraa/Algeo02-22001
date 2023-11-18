@@ -5,7 +5,7 @@ function Home()
 {
     return(    
     <span className="ReverseImage">
-        <h1>Reverse Image</h1>
+        <p className="Header">Reverse Image</p>
         <ImageInput />
         <Result></Result>
     </span>

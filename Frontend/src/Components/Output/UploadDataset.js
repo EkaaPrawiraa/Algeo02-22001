@@ -25,7 +25,7 @@ const YourParentComponent = () => {
   };
 
   return (
-    <div>
+    <div className='InsertDatasetButton' onClick={() => document.getElementById('ctrl').click()}>
       <input
         hidden
         multiple
@@ -36,9 +36,9 @@ const YourParentComponent = () => {
         accept="image/*"
         onChange={handleUpload}
       />
-      <p className="data-button" onClick={() => document.getElementById('ctrl').click()}>
+      <span className="data-button">
         Insert Dataset
-      </p>
+      </span>
     </div>
   );
 };

@@ -3,6 +3,7 @@ function HowToUse()
     return(
         <div className="HowToUse">
             <span className="Header">How to Use</span>
+            <hr></hr>
             <ol>
                 <li>Masukkan gambar yang mau diproses.</li>
                 <li>Pilih untuk membandingkan berdasarkan warna atau tekstur.</li>

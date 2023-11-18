@@ -31,13 +31,13 @@ const ImageOutput = ({ images }) => {
         ))}
       </div>
       <div className='PrevNext'>
-        <button className="Prev" onClick={handlePrevPage} disabled={currentPage === 1}>
+        <span className="Prev" onClick={handlePrevPage} disabled={currentPage === 1}>
           Previous Page
-        </button>
+        </span>
         <span className='Page'> Page {currentPage} of {totalPages} </span>
-        <button className="Next" onClick={handleNextPage} disabled={currentPage === totalPages}>
+        <span className="Next" onClick={handleNextPage} disabled={currentPage === totalPages}>
           Next Page
-        </button>
+        </span>
       </div>
     </div>
   );
