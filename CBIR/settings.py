@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-1mkrn68a@whpds_0j2x+66v*wg3z54)l!jm7d7+%gwsdt44cyi
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+DATA_UPLOAD_MAX_NUMBER_FILES=10000
 
 # Application definition
 
