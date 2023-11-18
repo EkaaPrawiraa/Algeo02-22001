@@ -43,11 +43,11 @@ function Search({ selectedToggle }) {
   return (
     <div>
       <div className="SearchButton">
-        <span className="Features" onClick={handleSearchClick}>
+        <button className="Features" id="Search" onClick={handleSearchClick}>
           Search
-        </span>
+        </button>
       </div>
-      <div className="SearchResults">
+      <div className="Result">
         <h2>Search Results:</h2>
         {searchResults && searchResults.length === 0 ? (
           <p>No results found</p>
