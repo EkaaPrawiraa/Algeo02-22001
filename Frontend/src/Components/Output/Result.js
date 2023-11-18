@@ -1,6 +1,4 @@
-import ImageOutput from "./ImageOutput";
-import UploadDataset from "./UploadDataset"
-
+import UploadDataset from "./UploadDataset";
 import React, { useState } from 'react';
 
 const Result = () => {
@@ -13,9 +11,7 @@ const Result = () => {
   return (
     <div className="Result">
       <UploadDataset onImagesSelect={handleImagesSelect} />
-      <ImageOutput images={selectedImages} />
     </div>
-
   );
 };
 

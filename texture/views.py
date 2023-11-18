@@ -41,10 +41,14 @@ class ImageProcessingView(View):
             with open(dataset_image_path, "rb") as image_file:
                 encoded_image = base64.b64encode(image_file.read()).decode('utf-8')
             if percentage>=0.60:
+                percentage *= 100
                 processed_images.append({
                     'image_name': image_name, 
                     'percentage': percentage,
-                    'image_data': ''})#harusnya encoded_image, tapi tidak dibuat karena belum ada frontend
+                    'image_data': encoded_image})#harusnya encoded_image, tapi tidak dibuat karena belum ada frontend
+        processed_images = sorted(processed_images, key=lambda x: x['percentage'], reverse=True)
+        for image in processed_images:
+            image['percentage'] = f'{image["percentage"]}%'
         return processed_images
 
     def calculate_percentage(self, main_image_path, dataset_image_path):

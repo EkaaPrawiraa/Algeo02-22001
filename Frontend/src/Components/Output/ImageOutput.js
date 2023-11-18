@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const ImageOutput = ({ images }) => {
+const ImageOutput = ({ images, totalTime }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const imagesPerPage = 6;
   const totalImages = images.length;
@@ -25,8 +25,8 @@ const ImageOutput = ({ images }) => {
       <div className='ImageRow'>
         {paginatedImages.map((image, index) => (
           <div key={index} className="ImageContainer" style={{ display: 'inline-block', margin: '10px' }}>
-            <img src={URL.createObjectURL(image)} alt={`Img ${index + 1}`} className='Image' style={{ maxWidth: '100%' }} />
-            <p>Persentase</p>
+            <img src={`data:image/jpeg;base64,${image.image_data}`} alt={`Img ${index + 1}`} className='Image' style={{ maxWidth: '100%' }} />
+            <p>Persentase: {image.percentage}</p>
           </div>
         ))}
       </div>
@@ -38,6 +38,9 @@ const ImageOutput = ({ images }) => {
         <span className="Next" onClick={handleNextPage} disabled={currentPage === totalPages}>
           Next Page
         </span>
+      </div>
+      <div>
+        <p>Total Time: {totalTime} seconds</p>
       </div>
     </div>
   );
