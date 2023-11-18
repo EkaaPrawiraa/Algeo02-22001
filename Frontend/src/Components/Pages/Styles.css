@@ -1,0 +1,336 @@
+h1{
+    text-align: center;
+    font-size: 75px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    margin-bottom: 50px;
+    color: white;
+}
+
+.NavBar{
+    text-align: center;
+    top: 0;
+    height: 40px;
+    position:sticky;
+    grid-column-start: 1;
+    grid-column-end: 12;
+    grid-row-start: 1;
+    background-color: lightslategray;
+    width: 100%;
+}
+
+.Nav{
+    position:sticky;
+    grid-column-start: 1;
+    grid-column-end: 12;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+.ReverseImage{
+    grid-row-start: 2;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 12;
+}
+
+#Nav1{
+    color: white;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+    font-size: 25px;
+    font-family: fantasy;
+    background-color: lightslategray;
+    border:none;
+}
+
+#Nav2{
+    color: white;
+    grid-column-start: 4;
+    grid-column-end: 6;
+    text-align: center;
+    font-size: 25px;
+    text-align: center;
+    font-family: fantasy;
+    background-color:lightslategray;
+    border:none;
+}
+
+#Nav3{
+    color:white;
+    grid-column-start: 7;
+    grid-column-end: 9;
+    text-align: center;
+    font-size: 25px;
+    text-align: center;
+    font-family: fantasy;
+    background-color: lightslategray;
+    border:none;
+}
+
+#Nav4{
+    color:white;
+    grid-column-start: 10;
+    grid-column-end: 12;
+    text-align: center;
+    font-size: 25px;
+    text-align: center;
+    font-family: fantasy;
+    background-color: lightslategray;
+    border:none;
+}
+
+.InputPicture{
+    width: 640px;
+    height: 360px;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    grid-row-end: 8;
+    margin: auto;
+    overflow: hidden;
+}
+
+.InputButton{
+    text-align: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    grid-column-start: 7;
+    grid-column-end: 10;
+    grid-row-start: 2;
+    width:120px;
+    margin: auto;
+}
+
+.ColorTextureToggle{
+    text-align:center;
+    grid-column-start: 7;
+    grid-column-end: 10;
+    grid-row-start: 4;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.Pagination{
+    margin-bottom: 20px;
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-column-end: 6;
+}
+
+.UploadDataset{
+    grid-row-start: 20;
+    grid-row-end: 20;
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+
+.ImageInput{
+    margin-bottom: 50px;
+}
+
+.ImageOutput{
+    grid-row-start: 9;
+    grid-row-end: 12;
+    grid-column-start: 1;
+    grid-column-end: 8;
+}
+
+.ResultText{
+    text-align:left;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin-bottom: 15px;
+    font-family:cursive;
+    font-weight:bold;
+    margin-left: 85px;
+}
+
+.Runtime{
+    text-align: center;
+    grid-column-start: 5;
+    grid-column-end: 8;
+    margin-bottom: 15px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-align: right;
+    margin-right: 85px;
+}
+
+.Prev{
+    width:50%;
+    grid-column-start: 1;
+    border-radius: 15%;
+    grid-row-start: 1;
+    text-align: center;
+    margin: auto;
+}
+
+.Page{
+    width: 50%;
+    grid-column-start: 3;
+    text-align: center;
+    margin: auto;
+}
+
+.Next{
+    width: 50%;
+    grid-column-start: 5;
+    border-radius: 15%;
+    text-align: center;
+    margin: auto;
+}
+
+.Features{
+    background-image: url("../Assets/bg.avif");
+    border-radius: 12px;
+    width: 50%;
+    align-items: center;
+    height: 50px;
+    text-align: center;
+    margin:auto;
+    color:white;
+    font-family: fantasy;
+}
+
+.SubColorTextureToggle{
+    margin: auto;
+}
+
+.toggle {
+    position : relative ;
+    display : inline-block;
+    width : 75px;
+    height : 52px;
+    background-color: red;
+    border-radius: 30px;
+    border: 2px solid gray;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+       
+.toggle:after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: gray;
+    top: 1px; 
+    left: 1px;
+    transition:  all 0.5s;
+}
+
+.checkbox:checked + .toggle::after {
+    left : 22px; 
+}
+       
+.checkbox:checked + .toggle {
+    background-color: green;
+}
+       
+.checkbox { 
+    display : none;
+}
+
+#imageInput{
+    margin: auto;
+}
+
+.ImageName{
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+input[type="file"]{
+    display: none;
+    border: 5px;
+    border-radius: 5px;
+}
+
+label{
+    cursor: pointer;
+    background-color: black;
+}
+
+.InputPicture{
+    grid-column-start: 2;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    width: 640px;
+    height: 360px;
+}
+
+.ImageContainer{
+    display: inline-block;
+    margin: 10px;
+}
+
+.Image {
+    max-width: 100%;
+    height: auto;
+    width: 400px;
+    height: 225px;
+    object-fit: cover; 
+  }
+
+.ImageRow{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.DatasetButton{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.Result{
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+
+.SearchButton{
+    grid-row-start: 6;
+    grid-column-start: 8;
+    grid-column-end: 9;
+}
+
+.ColorTitle{
+    grid-column-start: 7;
+    grid-column-end: 7;
+    margin-top: 50px;
+}
+
+.TextureTitle{
+    grid-column-start: 9;
+    grid-column-end: 9;
+    margin-top: 50px;
+}
+
+.Header{
+    font-size: 100px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+
+.SubHeader{
+    font-size: 50px;
+    font-family: serif;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.Text{
+    text-align: justify;
+    margin-left: 20px;
+    margin-right: 10px;
+}
