@@ -8,11 +8,16 @@ from .serializers import UploadedImageSerializer, Uploadeddataset
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.conf import settings
 
+from django.core.files.storage import FileSystemStorage
+
+
+
 class FolderUploadView(APIView):
     parser_classes = (MultiPartParser,FileUploadParser,)
     def post(self, request, *args, **kwargs):
+
         self.clear_destination_folder(os.path.join(settings.MEDIA_ROOT, 'dataset'))
-        folder = request.data['folder']
+        folder = request.FILES['file']
         jpg_files = [f for f in os.listdir(folder) if f.lower().endswith('.jpg')]
         for jpg_file in jpg_files:
             image_path = os.path.join(folder, jpg_file)
@@ -38,7 +43,7 @@ class SingleFileUploadView(APIView):
     parser_classes = (MultiPartParser,FileUploadParser,)
 
     def post(self, request, *args, **kwargs):
-        image_data = {'image': request.data['file']}
+        image_data = {'image': request.FILES['file']}
         self.clear_destination_folder(os.path.join(settings.MEDIA_ROOT, 'uploaded_images'))
         serializer = UploadedImageSerializer(data=image_data)
         if serializer.is_valid():
