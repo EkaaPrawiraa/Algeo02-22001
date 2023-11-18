@@ -1,6 +1,7 @@
 // Search.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import ImageOutput from '../Output/ImageOutput';
 
 function Search({ selectedToggle }) {
   const [searchResults, setSearchResults] = useState([]);
@@ -52,8 +53,7 @@ function Search({ selectedToggle }) {
           <ul>
             {searchResults.map((result, index) => (
               <li key={index}>
-                <p>Image Name: {result.image_name}</p>
-                <p>Percentage: {result.percentage}</p>
+                <ImageOutput images={result.processedImages} totalTime={SearchResults.total_time} />
                 {/* Display other properties or image data if needed */}
               </li>
             ))}
