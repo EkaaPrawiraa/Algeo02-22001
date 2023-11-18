@@ -5,6 +5,7 @@ import ImageOutput from '../Output/ImageOutput';
 
 function Search({ selectedToggle }) {
   const [searchResults, setSearchResults] = useState([]);
+  const [searchtime, setSearchtime] = useState([]);
   const [isSearchTriggered, setIsSearchTriggered] = useState(false);
 
   useEffect(() => {
@@ -20,7 +21,8 @@ function Search({ selectedToggle }) {
             response = await axios.get('http://localhost:8000/api/process-images/');
             console.log('Searching texture...');
           }
-          setSearchResults(response.data.processed_images || []); // Assuming 'processed_images' is the key in the response
+          setSearchResults(response.data.processed_images || []);
+          setSearchtime(response.data.total_time) // Assuming 'processed_images' is the key in the response
           setIsSearchTriggered(false); // Reset the search trigger after fetching data
           // Add your new action or program here
           // ...
@@ -47,13 +49,13 @@ function Search({ selectedToggle }) {
       </div>
       <div className="SearchResults">
         <h2>Search Results:</h2>
-        {searchResults.length === 0 ? (
+        {searchResults && searchResults.length === 0 ? (
           <p>No results found</p>
         ) : (
           <ul>
             {searchResults.map((result, index) => (
               <li key={index}>
-                <ImageOutput images={result.processedImages} totalTime={SearchResults.total_time} />
+                <ImageOutput images={searchResults} totalTime={searchtime} />
                 {/* Display other properties or image data if needed */}
               </li>
             ))}
