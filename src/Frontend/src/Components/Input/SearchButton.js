@@ -51,7 +51,9 @@ function Search({ selectedToggle }) {
       <div className="ResultContainer" style={{ position: 'absolute', left: 100, top: 700 }}>
         <h2 style={{ left: 100, top: 1500 }}>Search Results: </h2>
         {searchResults && searchResults.length === 0 ? (
-          <p>No results found</p>
+          <p>No results found
+            <ol> Total time : {searchtime} seconds</ol>
+          </p>
         ) : (
           <ImageOutput images={searchResults} totalTime={searchtime} />
         )}
