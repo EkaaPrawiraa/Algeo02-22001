@@ -4,7 +4,7 @@ Pemrosesan CBIR menggunakan website berbasis color dan texture menggunakan djang
 
 ## Instalasi
 
-Pastikan Anda telah menginstal Python dan Node.js sebelum menjalankan proyek ini.Kemudian pastikan directory sudah berubah menjadi directory dimana anda menyimpan project ini
+Pastikan Anda telah menginstal Python dan Node.js sebelum menjalankan proyek ini. Kemudian pastikan directory sudah berubah menjadi directory dimana anda menyimpan project ini
 ### Instal Django
 
 ```bash
