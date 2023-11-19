@@ -28,4 +28,4 @@ python manage.py runserver
 npm start
 ```
 
-# Open website at http://localhost:3000/
+## Open website at: "http://localhost:3000/"
