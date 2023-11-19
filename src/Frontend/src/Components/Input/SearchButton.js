@@ -37,7 +37,7 @@ function Search({ selectedToggle }) {
   };
   return (
     <div>
-      <div className="SearchButtonContainer" style={{ position: 'absolute', right: 320, top: 500 }}>
+      <div className="SearchButtonContainer">
         <button
           className="SearchButton"
           id="Search"

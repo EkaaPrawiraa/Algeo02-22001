@@ -25,7 +25,7 @@ const YourParentComponent = () => {
   };
 
   return (
-    <div className='InsertDatasetButton' onClick={() => document.getElementById('ctrl').click()} style={{ position: 'absolute', right : 850, top : 600, }}>
+    <div className='InsertDatasetButton' onClick={() => document.getElementById('ctrl').click()}>
       <input
         hidden
         multiple

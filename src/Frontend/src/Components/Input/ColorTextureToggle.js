@@ -11,8 +11,8 @@ function ColorTextureToggle() {
 
   return (
     <span className="ColorTextureToggle" >
-      <span className="SubColorTextureToggle" style={{ position: 'absolute', right : 230, top : 370, }}>
-        <p className="ColorTitle">Color</p>
+      <span className="SubColorTextureToggle">
+        <p className='ColorTitle'>Color</p>
         <input
           type="checkbox"
           id="switch"
@@ -25,7 +25,6 @@ function ColorTextureToggle() {
         </label>
         <p className="TextureTitle">Texture</p>
       </span>
-      {/* Pass the selectedToggle as a prop to the Search component */}
       <Search selectedToggle={selectedToggle} />
     </span>
   );
