@@ -394,4 +394,6 @@ label{
 .Logo{
     max-width: 50%;
     max-height: 50%;
+    margin: auto;
+    margin-top: 0;
 }
