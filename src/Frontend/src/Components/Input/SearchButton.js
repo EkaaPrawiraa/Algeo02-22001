@@ -35,25 +35,29 @@ function Search({ selectedToggle }) {
   const handleSearchClick = () => {
     setIsSearchTriggered(true);
   };
-
   return (
-    <div className='Sementara'>
-      <div className="SearchButton"  style={{ position: 'absolute', right : 320, top : 500, }}>
-        <button className="Features" id="Search" onClick={handleSearchClick}>
+    <div>
+      <div className="SearchButtonContainer" style={{ position: 'absolute', right: 320, top: 500 }}>
+        <button
+          className="SearchButton"
+          id="Search"
+          onClick={handleSearchClick}
+          style={{ color: 'white' }}
+        >
           Search
         </button>
       </div>
-      <div className="Result">
-        <h2>Search Results:</h2>
+
+      <div className="ResultContainer" style={{ position: 'absolute', left: 100, top: 700 }}>
+        <h2 style={{ left: 100, top: 1500 }}>Search Results: </h2>
         {searchResults && searchResults.length === 0 ? (
           <p>No results found</p>
         ) : (
-            <ImageOutput images={searchResults} totalTime={searchtime} />
+          <ImageOutput images={searchResults} totalTime={searchtime} />
         )}
       </div>
     </div>
   );
 }
-
 
 export default Search;

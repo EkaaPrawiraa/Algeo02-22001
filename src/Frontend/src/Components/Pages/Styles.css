@@ -100,11 +100,13 @@
 
 .ColorTextureToggle{
     text-align:center;
+    grid-row-start: 2;
+    grid-row-end: 7;
     grid-column-start: 1;
-    grid-column-end: 9;
-    grid-row-start: 3;
+    grid-column-end: 8;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
+    color : black;
 }
 
 .Pagination{
@@ -132,8 +134,8 @@
 }
 
 .ImageOutput{
-    grid-row-start: 9;
-    grid-row-end: 12;
+    grid-row-start: 2;
+    grid-row-end: 7;
     grid-column-start: 1;
     grid-column-end: 8;
 }
@@ -391,3 +393,6 @@ label{
 #Color2{
     grid-column-start: 2;
 }
+
+
+

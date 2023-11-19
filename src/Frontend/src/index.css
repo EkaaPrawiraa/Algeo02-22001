@@ -53,7 +53,7 @@ div{
 
 span{
   display: grid;
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 img{
@@ -76,7 +76,7 @@ li a {
 }
 
 li a:hover {
-  background-color: #111;
+  background-color: #000000;
 }
 
 a{
