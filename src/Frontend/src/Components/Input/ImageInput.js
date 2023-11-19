@@ -15,7 +15,6 @@ const ImageInput = () => {
         <InputPicture onImageSelect={handleImageSelect} />
         {selectedImage && <DisplayPicture imageData={selectedImage} />}
         <ColorTextureToggle></ColorTextureToggle>
-        <Search></Search>
       </div>
     );
   };
