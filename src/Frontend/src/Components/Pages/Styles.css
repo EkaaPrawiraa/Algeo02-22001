@@ -391,3 +391,7 @@ label {
 #Color2 {
     grid-column-start: 2;
 }
+.Logo{
+    max-width: 50%;
+    max-height: 50%;
+}
