@@ -16,11 +16,11 @@ const YourParentComponent = () => {
         },
       });
 
-      console.log('Files uploaded successfully:', response.data);
-      // Handle response if needed
+      console.log('upload nih:', response.data);
+      
     } catch (error) {
-      console.error('Error uploading files:', error);
-      // Handle errors if needed
+      console.error('Gagal upload:', error);
+      
     }
   };
 

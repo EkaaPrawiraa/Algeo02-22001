@@ -3,10 +3,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views import View
 from django.conf import settings
-# from .forms import ImageUploadForm, FolderUploadForm
 from .cbircolor import colormethod
-from PIL import Image
-import cv2
 import os
 import time
 import base64
@@ -14,7 +11,7 @@ import base64
 class ImageProcessing(View):
 
     def get(self, request, *args, **kwargs):
-        main_imagefolder = os.path.join(settings.MEDIA_ROOT, 'uploaded_images')  # Adjust the main image path
+        main_imagefolder = os.path.join(settings.MEDIA_ROOT, 'uploaded_images') 
         try:
             jpg_file = next(f for f in os.listdir(main_imagefolder) if f.lower().endswith('.jpg'))
         except StopIteration:
@@ -39,9 +36,9 @@ class ImageProcessing(View):
         querry_image =colormethod.calculate_histogram(colormethod.rgb_to_hsv(main_image_path))
         for image_name in os.listdir(dataset_folder):
             dataset_image_path = os.path.join(dataset_folder, image_name)
-            # Perform image processing and calculate percentage
+            # Menghitung nilai cos
             percentage = self.calculate_percentage(querry_image, dataset_image_path)
-            # Save the processed image to the database
+            # Menyimpan gambar
             with open(dataset_image_path, "rb") as image_file:
                 encoded_image = base64.b64encode(image_file.read()).decode('utf-8')
             if percentage>=0.60:
@@ -59,7 +56,6 @@ class ImageProcessing(View):
 
 
     def calculate_percentage(self, main_image_path, dataset_image_path):
-        # Read the dataset image
     
         percentage=colormethod.calculate_cosine_similarity(main_image_path, colormethod.calculate_histogram(colormethod.rgb_to_hsv(dataset_image_path)))
         return percentage

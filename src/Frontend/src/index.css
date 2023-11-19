@@ -84,7 +84,7 @@ a{
 }
 
 nav{
-  display: grid;
+  display: grid; 
   grid-column-start: 1;
   grid-column-end: 12;
 }

@@ -1,8 +1,8 @@
-.NavBar{
+.NavBar {
     text-align: center;
     height: 75px;
-    position:fixed;
-    top:0;
+    position: fixed;
+    top: 0;
     grid-column-start: 1;
     grid-column-end: 12;
     background-color: black;
@@ -10,8 +10,8 @@
     grid-row-start: 1;
 }
 
-.Nav{
-    position:sticky;
+.Nav {
+    position: sticky;
     grid-column-start: 1;
     grid-column-end: 12;
     vertical-align: middle;
@@ -20,14 +20,14 @@
     align-items: center;
 }
 
-.ReverseImage{
+.ReverseImage {
     grid-row-start: 2;
     grid-row-end: 2;
     grid-column-start: 1;
     grid-column-end: 12;
 }
 
-#Nav1{
+#Nav1 {
     color: white;
     grid-column-start: 1;
     grid-column-end: 3;
@@ -35,10 +35,10 @@
     font-size: 25px;
     font-family: fantasy;
     background-color: black;
-    border:none;
+    border: none;
 }
 
-#Nav2{
+#Nav2 {
     color: white;
     grid-column-start: 4;
     grid-column-end: 6;
@@ -46,12 +46,12 @@
     font-size: 25px;
     text-align: center;
     font-family: fantasy;
-    background-color:black;
-    border:none;
+    background-color: black;
+    border: none;
 }
 
-#Nav3{
-    color:white;
+#Nav3 {
+    color: white;
     grid-column-start: 7;
     grid-column-end: 9;
     text-align: center;
@@ -59,11 +59,11 @@
     text-align: center;
     font-family: fantasy;
     background-color: black;
-    border:none;
+    border: none;
 }
 
-#Nav4{
-    color:white;
+#Nav4 {
+    color: white;
     grid-column-start: 10;
     grid-column-end: 12;
     text-align: center;
@@ -71,10 +71,10 @@
     text-align: center;
     font-family: fantasy;
     background-color: black;
-    border:none;
+    border: none;
 }
 
-.InputPicture{
+.InputPicture {
     width: 640px;
     height: 360px;
     grid-column-start: 2;
@@ -85,10 +85,10 @@
     overflow: hidden;
 }
 
-.InputButton{
+.InputButton {
     text-align: center;
     align-items: center;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     grid-column-start: 7;
     grid-row-start: 2;
     height: 50px;
@@ -98,71 +98,69 @@
     overflow: hidden;
 }
 
-.ColorTextureToggle{
-    text-align:center;
-    grid-row-start: 2;
-    grid-row-end: 7;
+.ColorTextureToggle {
+    text-align: center;
     grid-column-start: 1;
-    grid-column-end: 8;
+    grid-column-end: 9;
+    grid-row-start: 3;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
-    color : black;
 }
 
-.Pagination{
+.Pagination {
     margin-bottom: 20px;
-    grid-template-columns:auto;
+    grid-template-columns: auto;
     grid-column-start: 1;
     grid-column-end: 6;
 }
 
-.UploadDataset{
+.UploadDataset {
     grid-row-start: 20;
     grid-row-end: 20;
     margin-bottom: 30px;
     margin-left: 30px;
 }
 
-.Sementara{
+.Sementara {
     grid-row-start: 2;
 }
 
-.ImageInput{
+.ImageInput {
     margin-bottom: 50px;
     margin-top: 50px;
-    grid-template-columns: repeat(8,1fr);
+    grid-template-columns: repeat(8, 1fr);
 }
 
-.ImageOutput{
-    grid-row-start: 2;
-    grid-row-end: 7;
+.ImageOutput {
+    grid-row-start: 9;
+    grid-row-end: 12;
     grid-column-start: 1;
     grid-column-end: 8;
 }
 
-.ResultText{
-    text-align:left;
+.ResultText {
+    text-align: left;
     grid-column-start: 1;
     grid-column-end: 4;
     margin-bottom: 15px;
-    font-family:cursive;
-    font-weight:bold;
+    font-family: cursive;
+    font-weight: bold;
     margin-left: 85px;
 }
 
-.Runtime{
+.Runtime {
     text-align: center;
     grid-column-start: 5;
     grid-column-end: 8;
     margin-bottom: 15px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
     text-align: right;
     margin-right: 85px;
 }
 
-.Prev{
-    width:50%;
+.Prev {
+    width: 50%;
     grid-column-start: 1;
     border-radius: 25px;
     grid-row-start: 1;
@@ -175,7 +173,7 @@
     cursor: pointer;
 }
 
-.Page{
+.Page {
     width: 50%;
     grid-column-start: 3;
     text-align: center;
@@ -187,7 +185,7 @@
     height: 40px;
 }
 
-.Next{
+.Next {
     width: 50%;
     grid-column-start: 5;
     border-radius: 15%;
@@ -201,25 +199,25 @@
     cursor: pointer;
 }
 
-.Features{
+.Features {
     width: 50%;
     align-items: center;
     height: 50px;
     text-align: center;
-    margin:auto;
-    color:white;
+    margin: auto;
+    color: white;
     font-family: cursive;
 }
 
-.SubColorTextureToggle{
+.SubColorTextureToggle {
     margin: auto;
 }
 
 .toggle {
-    position : relative ;
-    display : inline-block;
-    width : 75px;
-    height : 52px;
+    position: relative;
+    display: inline-block;
+    width: 75px;
+    height: 52px;
     background-color: red;
     border-radius: 30px;
     border: 2px solid gray;
@@ -228,7 +226,7 @@
     margin-top: 30px;
     margin-bottom: 30px;
 }
-       
+
 .toggle:after {
     content: '';
     position: absolute;
@@ -236,44 +234,44 @@
     height: 50px;
     border-radius: 50%;
     background-color: gray;
-    top: 1px; 
+    top: 1px;
     left: 1px;
-    transition:  all 0.5s;
+    transition: all 0.5s;
 }
 
-.checkbox:checked + .toggle::after {
-    left : 22px; 
+.checkbox:checked+.toggle::after {
+    left: 22px;
 }
-       
-.checkbox:checked + .toggle {
+
+.checkbox:checked+.toggle {
     background-color: green;
 }
-       
-.checkbox { 
-    display : none;
+
+.checkbox {
+    display: none;
 }
 
-#imageInput{
+#imageInput {
     margin: auto;
 }
 
-.ImageName{
+.ImageName {
     grid-row-start: 2;
     grid-row-end: 2;
 }
 
-input[type="file"]{
+input[type="file"] {
     display: none;
     border: 5px;
     border-radius: 5px;
 }
 
-label{
+label {
     cursor: pointer;
     background-color: black;
 }
 
-.InputPicture{
+.InputPicture {
     grid-column-start: 2;
     grid-column-end: 6;
     grid-row-start: 1;
@@ -282,7 +280,7 @@ label{
     height: 360px;
 }
 
-.ImageContainer{
+.ImageContainer {
     display: inline-block;
     margin: 10px;
 }
@@ -292,28 +290,28 @@ label{
     height: auto;
     width: 400px;
     height: 225px;
-    object-fit: cover; 
-  }
+    object-fit: cover;
+}
 
-.ImageRow{
+.ImageRow {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-.DatasetButton{
+.DatasetButton {
     grid-column-start: 3;
     grid-column-end: 4;
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.Result{
-    grid-template-columns: repeat(5,1fr);
-    grid-template-rows: repeat(3,1fr);
+.Result {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
 }
 
-.SearchButton{
+.SearchButton {
     grid-row-start: 4;
     grid-column-start: 7;
     align-items: center;
@@ -324,21 +322,21 @@ label{
     cursor: pointer;
 }
 
-.ColorTitle{
+.ColorTitle {
     grid-column-start: 7;
     grid-column-end: 7;
     margin-top: 50px;
 }
 
-.TextureTitle{
+.TextureTitle {
     grid-column-start: 9;
     grid-column-end: 9;
     margin-top: 50px;
 }
 
-.Header{
+.Header {
     font-size: 100px;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     align-items: center;
     margin-top: 100px;
     margin-bottom: 30px;
@@ -346,26 +344,26 @@ label{
     text-align: center;
 }
 
-.SubHeader{
+.SubHeader {
     font-size: 50px;
     font-family: serif;
     font-weight: bold;
     margin-left: 20px;
 }
 
-.Text{
+.Text {
     text-align: justify;
     font-size: 25px;
     margin-left: 20px;
     margin-right: 20px;
 }
 
-.GambarPenjelasan{
+.GambarPenjelasan {
     margin-bottom: 20px;
     margin: auto;
 }
 
-.InsertDatasetButton{
+.InsertDatasetButton {
     cursor: pointer;
     grid-column-start: 3;
     grid-column-end: 4;
@@ -376,23 +374,20 @@ label{
     height: 50px;
 }
 
-.data-button{
+.data-button {
     color: white;
     font-family: cursive;
 }
 
-.InsertImageText{
-    color:white;
+.InsertImageText {
+    color: white;
     font-family: cursive;
 }
 
-#Color1{
+#Color1 {
     grid-column-start: 1;
 }
 
-#Color2{
+#Color2 {
     grid-column-start: 2;
 }
-
-
-
