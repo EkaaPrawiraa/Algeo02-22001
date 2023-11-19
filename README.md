@@ -11,13 +11,21 @@ Pastikan Anda telah menginstal Python dan Node.js sebelum menjalankan proyek ini
 pip install django
 pip install djangorestframework
 pip install django-filter
+```
 
-install juga node.js dan npm dari situs resminya
+### install juga node.js dan npm dari situs resminya
+```bash
 npm install react-scripts
+```
 
-Jalankan Server Django
+ ### Jalankan Server Django
+ ```bash
 python manage.py runserver
+```
 
-Jalankan Server React
+### Jalankan Server React
+```bash
 npm start
+```
 
+# Open website at http://localhost:3000/
